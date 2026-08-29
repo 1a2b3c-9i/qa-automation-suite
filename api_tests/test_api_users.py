@@ -5,9 +5,10 @@ Covers: GET, POST, PUT, DELETE, status codes, response schema, negative cases
 """
 
 import requests
+import os
 
 BASE_URL = "https://reqres.in/api"
-HEADERS = {"x-api-key": "reqres-free-v1"}  # required by reqres.in's free tier
+HEADERS = {"x-api-key": os.environ.get("REQRES_API_KEY", "reqres-free-v1")}
 
 
 def test_get_single_user_success():
